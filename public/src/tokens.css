@@ -1,0 +1,107 @@
+/* AutoCat — design tokens
+   Calm, tactile, warm-neutral. Light primary; dark follows [data-theme="dark"]. */
+
+:root {
+  /* spacing scale */
+  --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+  --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+
+  /* radii */
+  --r-card: 16px; --r-mini: 10px; --r-btn: 10px; --r-field: 9px; --r-pill: 999px;
+
+  /* type scale (Geist) */
+  --fs-display: 30px;
+  --fs-title: 22px;
+  --fs-name: 19px;
+  --fs-body: 15px;
+  --fs-sm: 13px;
+  --fs-xs: 12px;
+  --lh: 1.55;
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* easing */
+  --ease: cubic-bezier(.32,.72,.32,1);
+}
+
+/* ── Light (default) ── */
+:root, :root[data-theme="light"] {
+  --bg:        #F4F1EB;
+  --bg-2:      #EBE7DE;
+  --surface:   #FFFFFF;
+  --mini:      #FCFBF8;
+  --mini-2:    #F7F4EE;
+
+  --border:        rgba(40,33,22,.09);
+  --border-strong: rgba(40,33,22,.15);
+  --hairline:      rgba(40,33,22,.06);
+
+  --text:       #2A2419;
+  --text-muted: #6E6557;
+  --text-faint: #9A9082;
+
+  --row-hover: rgba(40,33,22,.035);
+  --chip-bg:   rgba(40,33,22,.05);
+
+  --shadow-card:       0 1px 2px rgba(40,33,22,.05), 0 4px 12px rgba(40,33,22,.05);
+  --shadow-card-hover: 0 2px 5px rgba(40,33,22,.07), 0 14px 30px rgba(40,33,22,.10);
+  --shadow-mini:       0 1px 2px rgba(40,33,22,.06), 0 3px 7px rgba(40,33,22,.05);
+  --shadow-pop:        0 10px 34px rgba(40,33,22,.16), 0 2px 6px rgba(40,33,22,.08);
+
+  --accent-on: #fff; /* text color over accent fills */
+}
+
+/* ── Dark ── */
+:root[data-theme="dark"] {
+  --bg:        #14120E;
+  --bg-2:      #1B1813;
+  --surface:   #201D17;
+  --mini:      #262219;
+  --mini-2:    #2C271E;
+
+  --border:        rgba(245,240,230,.10);
+  --border-strong: rgba(245,240,230,.18);
+  --hairline:      rgba(245,240,230,.07);
+
+  --text:       #ECE6DA;
+  --text-muted: #A39A8B;
+  --text-faint: #6F665A;
+
+  --row-hover: rgba(245,240,230,.04);
+  --chip-bg:   rgba(245,240,230,.06);
+
+  --shadow-card:       0 1px 2px rgba(0,0,0,.45), 0 5px 14px rgba(0,0,0,.38);
+  --shadow-card-hover: 0 2px 5px rgba(0,0,0,.5), 0 16px 34px rgba(0,0,0,.5);
+  --shadow-mini:       0 1px 2px rgba(0,0,0,.4), 0 3px 8px rgba(0,0,0,.32);
+  --shadow-pop:        0 12px 38px rgba(0,0,0,.55), 0 2px 8px rgba(0,0,0,.4);
+
+  --accent-on: #14120E;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh);
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; }
+
+/* focus rings — accent colored, 2px */
+:focus-visible {
+  outline: 2px solid var(--focus, var(--text));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::selection { background: color-mix(in oklab, var(--focus, #888) 30%, transparent); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: .001ms !important; animation-duration: .001ms !important; }
+}
